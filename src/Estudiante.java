@@ -1,37 +1,22 @@
-public class Estudiante {
+public class Estudiante extends Persona {
     // Atributos
-    private String nombre;
-    private String apellido;
-    private int edad;
     private String carrera;
     private float promedio;
     private Materia[] materias;
 
     // Contructores
-    public Estudiante () {    }
+    public Estudiante () {   
+        super();
+    }
 
-    public Estudiante (String nombre, String apellido, int edad, String carrera, float promedio, int cantMaterias) {
-        setNombre(nombre);
-        setApellido(apellido);
-        setEdad(edad);
+    public Estudiante (String nombre, String apellido, int edad, String carrera, float promedio, int cantMaterias, String documento) {
+        super (nombre, apellido, edad, documento);
         setCarrera(carrera);
         setPromedio(promedio);
         setMaterias(cantMaterias);
     }
 
     // Getters
-    public String getNombre(){
-        return nombre;
-    }
-
-    public String getApellido(){
-        return apellido;
-    }
-
-    public int getEdad(){
-        return edad;
-    }
-
     public String getCarrera(){
         return carrera;
     }
@@ -45,30 +30,6 @@ public class Estudiante {
     }
 
     // Setters
-    public void setNombre(String nombre) {
-        if (nombre.trim().isEmpty()){
-            System.out.println("Error: Nombre Vacío");
-        } else {
-            this.nombre=nombre;
-        }
-    }
-
-    public void setApellido (String apellido) {
-        if (apellido.trim().isEmpty()){
-            System.out.println("Error: Apellido Vacío");
-        } else {
-            this.apellido=apellido;
-        }
-    }
-
-    public void setEdad (int edad) {
-        if (edad<=16) {
-            System.out.println("Error: La edad debe ser mayor a 16 años.");
-        } else {
-            this.edad=edad;
-        }
-    }
-
     public void setPromedio (float promedio) {
         if (promedio<0 || promedio>10) {
             System.out.println("Error: Promedio Inválido");

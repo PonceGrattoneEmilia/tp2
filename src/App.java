@@ -6,7 +6,7 @@ public class App {
         int opMenu=0, edad, materias;
         Carrera carrera1= new Carrera("Ingeniería en Sistemas", 10);
         Scanner scan = new Scanner (System.in);
-        String nombre, apellido, codigoMat, nombreMat, nombreEst;
+        String nombre, apellido, codigoMat, nombreMat, nombreEst, documento;
 
         do {
 
@@ -27,10 +27,12 @@ public class App {
                     System.out.println("- Edad: ");
                     edad=scan.nextInt();
                     scan.nextLine();
+                    System.out.println("- Documento: ");
+                    documento=scan.nextLine();
                     System.out.println("- Cantidad de Materias a Cursar: ");
                     materias=scan.nextInt();
                     scan.nextLine();
-                    Estudiante nuevo = new Estudiante(nombreEst, apellido, edad, "Ingeniería en Sistemas", 0f, materias);
+                    Estudiante nuevo = new Estudiante(nombreEst, apellido, edad, "Ingeniería en Sistemas", 0f, materias, documento);
                     carrera1.agregarEstudiante(nuevo);
                     System.out.println("Estudiante Agregado.\n");
                     break;
