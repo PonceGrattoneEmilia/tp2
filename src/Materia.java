@@ -4,6 +4,7 @@ public class Materia {
     private String codigo;
     private int creditos;
     private float calificacion;
+    private Profesor profesor;
 
     // constructor
     public Materia (String nombre, String codigo, int creditos, float calificacion) {

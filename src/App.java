@@ -3,14 +3,14 @@ public class App {
     public static void main(String[] args) {
         
         float calificacion, promedio=0;
-        int opMenu=0, edad, materias;
+        int opMenu=0, edad, materias, opcionPersonal, añosExp, cantMaterias;
         Carrera carrera1= new Carrera("Ingeniería en Sistemas", 10);
         Scanner scan = new Scanner (System.in);
-        String nombre, apellido, codigoMat, nombreMat, nombreEst, documento;
+        String nombre, apellido, codigoMat, nombreMat, nombreEst, documento, nombrePersonal, apellidoPersonal, especialidad, departamento, puesto, fechaIngreso;
 
         do {
 
-            System.out.println("\nMENU PRINCIPAL\n1- Agregar Estudiante a Ing. en Sistemas\n2- Asignar Materia\n3- Mostrar Promedios\n4- Listar Estudiantes\n5- Salir\nSu Opcion --> ");
+            System.out.println("\nMENU PRINCIPAL\n1- Agregar Estudiante a Ing. en Sistemas\n2- Asignar Materia\n3- Mostrar Promedios\n4- Listar Estudiantes\n5- Agregar Personal\n6- Salir\nSu Opcion --> ");
             opMenu=scan.nextInt();
             while (opMenu<1||opMenu>5) {
                 System.out.println("Opcion Inválida. Seleccione Nuevamente.\nSu Opcion --> ");
@@ -74,7 +74,58 @@ public class App {
                     System.out.println("LISTADO DE ALUMNOS: ");
                     carrera1.listarEstudiantes();
                     break;
-                case 5: System.out.println("Saliendo....\n");
+                case 5: // agregar perosnal --> PROFESOR / PERSONAL GENERAL
+                    System.out.println("Seleccione: 1.Profesor / 2. Otro Personal\nSu Opcion --> ");
+                    opcionPersonal=scan.nextInt();
+                    while (opcionPersonal<1||opcionPersonal>2){
+                        System.out.println("Opcion Inválida. Ingrese nuevamente: ");
+                        opcionPersonal=scan.nextInt();
+                    }
+                    if (opcionPersonal==1){ // profesores
+                        System.out.println("\nIngrese los datos del PROFESOR a ingresar: \n");
+                        System.out.println("- Nombre: ");
+                        nombrePersonal=scan.nextLine();
+                        System.out.println("- Apellido: ");
+                        apellidoPersonal=scan.nextLine();
+                        System.out.println("- Edad: ");
+                        edad=scan.nextInt();
+                        scan.nextLine();
+                        System.out.println("- Documento: ");
+                        documento=scan.nextLine();
+                        System.out.println("- Especialidad: ");
+                        especialidad=scan.nextLine();
+                        System.out.println("- Años de Experiencia: ");
+                        añosExp=scan.nextInt();
+                        scan.nextLine();
+                        System.out.println("- Cantidad de Materias Asignadas: ");
+                        cantMaterias=scan.nextInt();
+                        scan.nextLine();
+                        Profesor nuevoProfesor = new Profesor(nombrePersonal, apellidoPersonal, edad, documento, especialidad, añosExp, cantMaterias);
+                    }else{ // otro personal
+
+                        System.out.println("\nIngrese los datos del PERSONAL a ingresar: \n");
+                        System.out.println("- Nombre: ");
+                        nombrePersonal=scan.nextLine();
+                        System.out.println("- Apellido: ");
+                        apellidoPersonal=scan.nextLine();
+                        System.out.println("- Edad: ");
+                        edad=scan.nextInt();
+                        scan.nextLine();
+                        System.out.println("- Documento: ");
+                        documento=scan.nextLine();
+                        System.out.println("- : Departamento: ");
+                        departamento=scan.nextLine();
+                        System.out.println("- Fecha Ingreso: ");
+                        fechaIngreso=scan.nextLine();
+                        System.out.println("- Puesto: ");
+                        puesto=scan.nextLine();
+                        scan.nextLine();
+                        Personal nuevoPersonal = new Personal (departamento, puesto, fechaIngreso, nombrePersonal, edad, apellidoPersonal, documento);
+
+                    }
+
+                    break;
+                case 6: System.out.println("Saliendo....\n");
                     break;
                 default: System.out.println("ERROR\n");
                     break;

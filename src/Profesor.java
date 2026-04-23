@@ -38,4 +38,14 @@ public class Profesor extends Persona {
         return materiasAsignadas;
     }
 
+    public void asignarMateria (Materia nueva) {
+        for (int i=0; i<materiasAsignadas.length; i++) {
+            if(materiasAsignadas[i]==null) {
+                this.materiasAsignadas[i]=nueva;
+                return;
+            }
+        }
+        System.out.println("No hay espacio para asignar otra materia.\n");
+    }
+
 }
